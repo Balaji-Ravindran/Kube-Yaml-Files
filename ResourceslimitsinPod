@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-02-21T17:14:41Z"
+  name: elephant
+  namespace: default
+  resourceVersion: "1585"
+  selfLink: /api/v1/namespaces/default/pods/elephant
+  uid: ad2440a6-3574-49f8-9295-b45461de4fe2
+spec:
+  containers:
+  - args:
+    - --vm
+    - "1"
+    - --vm-bytes
+    - 15M
+    - --vm-hang
+    - "1"
+    command:
+    - stress
+    image: polinux/stress
+    imagePullPolicy: Always
+    name: mem-stress
+    resources:
+      limits:
+        memory: 20Mi
+      requests:
+        memory: 5Mi
